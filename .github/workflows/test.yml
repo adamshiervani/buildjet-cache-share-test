@@ -9,8 +9,9 @@ jobs:
         run: mkdir ./store-this && date > ./store-this/date.txt
       - uses: buildjet/cache/save@v3
         with:
-          path: ./store-this
-          key: gha-runner-cache-1
+          path: ~/store-this
+          key: gha-runner-cache-2
+
   restore_buildjet_runner:
     name: "Restore with BuildJet Runner"
     needs: [ store_gha_runner ]
@@ -18,7 +19,7 @@ jobs:
     steps:
       - uses: buildjet/cache/restore@v3
         with:
-          path: ./store-this
-          key: gha-runner-cache-1
+          path: ~/store-this
+          key: gha-runner-cache-2
       - name: Read date from text-file
-        run: cat ./store-this/date.txt
+        run: cat ~/store-this/date.txt
