@@ -1,0 +1,23 @@
+name: "BuildJet Cache Share test"
+on: push
+jobs:
+  store_gha_runner:
+    name: "Store with GHA Runner"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Store date in text-file
+        run: mkdir ./store-this && date > ./store-this/date.txt
+      - uses: buildjet/cache/store@v3
+        with:
+          path: ./store-this
+          key: gha-runner-cache
+  restore_buildjet_runner:
+    name: "Restore with BuildJet Runner"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: buildjet/cache/restore@v3
+        with:
+          path: ./store-this
+          key: gha-runner-cache
+      - name: Read date from text-file
+        run: cat ./store-this/date.txt
