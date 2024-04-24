@@ -28,10 +28,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Tree the home folder
-        run: apt install tree -y && tree -L 3
+        run: sudo apt install tree -y && tree -L 3
   test_buildjet:
     name: "Show Dir tree"
     runs-on: buildjet-2vcpu-ubuntu-2204
     steps:
       - name: Tree the home folder
-        run: apt install tree -y && tree -L 3
+        run: sudo apt install tree -y && tree -L 3
