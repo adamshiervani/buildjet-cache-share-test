@@ -10,15 +10,15 @@ jobs:
       - uses: buildjet/cache/save@v3
         with:
           path: ./store-this
-          key: gha-runner-cache
+          key: gha-runner-cache-1
   restore_buildjet_runner:
     name: "Restore with BuildJet Runner"
     needs: [ store_gha_runner ]
-    runs-on: ubuntu-latest
+    runs-on: buildjet-2vcpu-ubuntu-2204
     steps:
       - uses: buildjet/cache/restore@v3
         with:
           path: ./store-this
-          key: gha-runner-cache
+          key: gha-runner-cache-1
       - name: Read date from text-file
         run: cat ./store-this/date.txt
