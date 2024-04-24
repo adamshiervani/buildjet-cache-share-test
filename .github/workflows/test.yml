@@ -29,9 +29,11 @@ jobs:
     steps:
       - name: Tree the home folder
         run: sudo apt install tree -y && tree -L 3
+      - run: pwd
   test_buildjet:
     name: "Show Dir tree"
     runs-on: buildjet-2vcpu-ubuntu-2204
     steps:
       - name: Tree the home folder
         run: sudo apt install tree -y && tree -L 3
+      - run: pwd
