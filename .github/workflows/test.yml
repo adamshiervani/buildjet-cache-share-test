@@ -23,3 +23,15 @@ jobs:
           key: gha-runner-cache-2
       - name: Read date from text-file
         run: cat ~/store-this/date.txt
+  tree_gha:
+    name: "Show Dir tree"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Tree the home folder
+        run: apt install tree -y && tree -L 3
+  test_buildjet:
+    name: "Show Dir tree"
+    runs-on: buildjet-2vcpu-ubuntu-2204
+    steps:
+      - name: Tree the home folder
+        run: apt install tree -y && tree -L 3
