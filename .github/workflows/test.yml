@@ -7,7 +7,7 @@ jobs:
     steps:
       - name: Store date in text-file
         run: mkdir ./store-this && date > ./store-this/date.txt
-      - uses: buildjet/cache/store@v3
+      - uses: buildjet/cache/save@v3
         with:
           path: ./store-this
           key: gha-runner-cache
