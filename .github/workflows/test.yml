@@ -2,7 +2,7 @@ name: "BuildJet Cache Share test"
 on: push
 jobs:
   store_gha_runner:
-    name: "Store with GHA Runner"
+    name: "Store with GHA  Runner"
     runs-on: ubuntu-latest
     steps:
       - name: Store date in text-file
