@@ -14,15 +14,11 @@ jobs:
 
   restore_buildjet_runner:
     name: "Restore with BuildJet Runner"
-    needs: [ store_gha_runner ]
     runs-on: buildjet-2vcpu-ubuntu-2204
     steps:
-      - uses: buildjet/cache/restore@v3
+      - uses: buildjet/setup-node@v4
         with:
-          path: ~/store-this
-          key: gha-runner-cache-2
-      - name: Read date from text-file
-        run: cat ~/store-this/date.txt
+          node-version: 18
   tree_gha:
     name: "Show Dir tree"
     runs-on: ubuntu-latest
