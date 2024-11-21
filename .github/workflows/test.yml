@@ -17,6 +17,7 @@ jobs:
     name: "Restore with BuildJet Runner"
     runs-on: buildjet-2vcpu-ubuntu-2204
     steps:
+      - run: printenv
       - run: git -v
       - uses: buildjet/setup-node@v4
         with:
