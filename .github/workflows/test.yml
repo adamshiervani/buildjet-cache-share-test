@@ -5,7 +5,7 @@ jobs:
     name: "Store with GHA  Runner"
     runs-on: ubuntu-latest
     steps:
-      - run: git -v
+      - run: printenv
       - name: Store date in text-file
         run: mkdir ./store-this && date > ./store-this/date.txt
       - uses: buildjet/cache/save@v3
